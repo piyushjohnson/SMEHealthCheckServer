@@ -20,7 +20,7 @@ export class SME extends Model {
       msg: 'UEN Number should not be empty',
     },
     is: {
-      msg: 'UEN number should have 8 digits followed by a alphabet',
+      msg: 'UEN Number should have 8 digits followed by a alphabet',
       args: /\d{8}[A-za-z]{1}/i,
     },
   })
@@ -84,4 +84,13 @@ export class SME extends Model {
     }),
   )
   MobNumber: number;
+
+  @Validate({
+    isArray: {
+      args: true,
+      msg: 'Documents is not valid',
+    },
+  })
+  @Column(DataType.ARRAY(DataType.TEXT))
+  Documents: string[];
 }

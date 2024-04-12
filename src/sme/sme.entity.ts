@@ -85,12 +85,6 @@ export class SME extends Model {
   )
   MobNumber: number;
 
-  @Validate({
-    isArray: {
-      args: true,
-      msg: 'Documents is not valid',
-    },
-  })
   @Column(DataType.ARRAY(DataType.TEXT))
   Documents: string[];
 }
